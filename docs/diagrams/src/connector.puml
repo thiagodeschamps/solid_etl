@@ -1,0 +1,10 @@
+@startuml connector c
+class AbstractConnector {
+  + AbstractConnector()
+  + connect(): void
+}
+
+class PostgresConnector {
+}
+AbstractConnector <|-- PostgresConnector
+@enduml
