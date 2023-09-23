@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+from .connect import PostgreSQLConnector
 
 class AbstractExtractor(ABC):
 
@@ -9,8 +9,8 @@ class AbstractExtractor(ABC):
 
 
 class PostgresExtractor(AbstractExtractor):
-    def __init__(self, connector, query):
-        self.connector = connector
+    def __init__(self, connection_details, query):
+        self.connector = PostgreSQLConnector(**connection_details)
         self.query = query
 
     def extract(self):

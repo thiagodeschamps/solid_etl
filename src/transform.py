@@ -13,9 +13,8 @@ class AbstractTransform(ABC):
 
 class CursorToPandasTransformer(AbstractTransform):
     def __init__(self, data):
-        super().__init__(data=data)
+        super().__init__(data)
 
     def transform(self):
-        df = pd.DataFrame(self.data[1], columns=self.data[0])
-
+        df = pd.DataFrame(self[1], columns=self[0])
         return df
