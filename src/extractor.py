@@ -1,5 +1,8 @@
+import csv
 from abc import ABC, abstractmethod
+
 from .connect import PostgreSQLConnector
+
 
 class AbstractExtractor(ABC):
 
@@ -24,3 +27,18 @@ class PostgresExtractor(AbstractExtractor):
                 return column_names, result
         finally:
             self.connector.close()
+
+
+class CSVExtractor(AbstractExtractor):
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def extract(self):
+        data = []
+        with open(self.file_path, newline='', encoding='utf-8') as csvfile:
+            csvreader = csv.reader(csvfile)
+            for row in csvreader:
+                data.append(row)
+        column_names = data[0]
+        data = data[1:]
+        return column_names, data

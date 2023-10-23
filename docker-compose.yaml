@@ -1,24 +1,24 @@
 version: "3.7"
 services:
-    
-    postgres:
-        container_name: postgres
-        image: aa8y/postgres-dataset:world
-        restart: always
-        logging:
-          options:
-            max-size: 10m
-            max-file: "3"
-        ports:
-          - '5432:5432'
-    
-    mysql:
-        container_name: mysql
-        image: mysql
-        ports:
-            - "3306:3306"
-        environment:
-            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-            MYSQL_USER: "user"
-            MYSQL_PASSWORD: "password"
-            MYSQL_DATABASE: "database"
+
+  postgres:
+    container_name: postgres
+    image: aa8y/postgres-dataset:world
+    restart: always
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - '5432:5432'
+
+  mysql:
+    container_name: mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_DATABASE: "database"

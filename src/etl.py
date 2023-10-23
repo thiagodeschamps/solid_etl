@@ -1,6 +1,6 @@
 from . import extractor
-from . import transform
 from . import load
+from . import transform
 
 
 class ETL:
@@ -23,7 +23,7 @@ class ETL:
 
         # Transform
         for transformer in self.transformers:
-            data = transformer.transform(data)
+            data = transformer(data).transform()
 
         # Load
         self.loader.load(data)

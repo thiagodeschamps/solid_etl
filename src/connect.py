@@ -1,7 +1,6 @@
+import psycopg2
 import sqlite3
 from abc import ABC
-
-import psycopg2
 
 
 class AbstractConnector(ABC):
